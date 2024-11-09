@@ -6,11 +6,10 @@ import { db } from '../../firebase'
 import { doc } from 'firebase/firestore'
 import { usePathname } from 'next/navigation'
 
-function SidebarOption({ href, id }: { href: string; id: string }): { href: string; id: string } | null {
+function SidebarOption({ href, id }): { href: string; id: string } | null {
   const [data, loading, error] = useDocumentData(doc(db, 'documents', id))
   const pathname = usePathname()
   const isActive = href.includes(pathname) && pathname !== '/'
-  console.log('Sidebar loading =>', data, loading, error)
 
   if (!data) return null
 

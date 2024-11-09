@@ -28,15 +28,8 @@ function Sidebar() {
     editor: RoomDocument[]
   }>({ owner: [], editor: [] })
 
-  console.log(data)
-  console.log(loading)
-  console.log(error)
-
   useEffect(() => {
     if (!data) return
-    data.docs.map(doc => {
-      console.log(doc.data())
-    })
     // reduce data into a grouped object by roomId
     // [doc1, doc2, doc3] => { roomId1: [doc1, doc2], roomId2: [doc3] }
     const grouped = data.docs.reduce<{
@@ -56,7 +49,7 @@ function Sidebar() {
       { owner: [], editor: [] }
     )
 
-    console.log(grouped)
+    //console.log(grouped)
     setGroupedData(grouped)
   }, [data])
 
