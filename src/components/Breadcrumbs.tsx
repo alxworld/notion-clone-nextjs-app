@@ -21,10 +21,11 @@ function Breadcrumbs() {
         {segments.map((segment, index) => {
           if (segment === 'doc') {
             return (
-              <BreadcrumbItem key={index}>
-                <BreadcrumbLink href="/">doc</BreadcrumbLink>
-                <BreadcrumbSeparator />
-              </BreadcrumbItem>
+              // <BreadcrumbItem key={index}>
+              //   <BreadcrumbLink href="/">doc</BreadcrumbLink>
+              //   <BreadcrumbSeparator />
+              // </BreadcrumbItem>
+              null
             )
           }
 
