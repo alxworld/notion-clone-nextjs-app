@@ -7,11 +7,18 @@ import { doc, updateDoc } from 'firebase/firestore'
 import { db } from '../../firebase'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import Editor from './Editor'
+import useOwner from '@/lib/useOwner'
+import DeleteDocument from './DeleteDocument'
+import InviteUser from './InviteUser'
+import ManageUsers from './ManageUsers'
+import Avatars from './Avatars'
 
 function Document({ id }): { id: string } {
   const [input, setInput] = useState('')
   const [isUpdating, startTransition] = useTransition()
   const [data, loading, error] = useDocumentData(doc(db, 'documents', id))
+  // Custom Hook
+  const isOwner = useOwner()
 
   useEffect(() => {
     // fetch document title
@@ -48,13 +55,25 @@ function Document({ id }): { id: string } {
           <Button disabled={isUpdating} type="submit">
             {isUpdating ? 'Updating...' : 'Update'}
           </Button>
+
+          {/* if owner, allow to edit, else disable */}
+          {isOwner && (
+            <>
+              {/* Invite User Option */}
+              <InviteUser />
+              {/* Delete Document Option */}
+              <DeleteDocument />
+            </>
+          )}
         </form>
       </div>
 
-      <div>
+      <div className="flex flex-1 gap-4 p-4">
         {/* Manage Users */}
+        <ManageUsers />
 
         {/* Avatars */}
+        <Avatars />
       </div>
 
       {/* Collabrative Editor */}
