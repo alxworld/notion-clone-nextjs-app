@@ -14,6 +14,7 @@ import { BlockNoteEditor } from '@blocknote/core'
 import { useCreateBlockNote } from '@blocknote/react'
 import stringToColor from '@/lib/stringToColor'
 import TranslateDocument from './TranslateDocument'
+import ChatToDocument from './ChatToDocument'
 
 type EditorProps = {
   doc: Y.Doc
@@ -71,6 +72,7 @@ function Editor() {
         {/* Translate Document */}
         <TranslateDocument doc={doc} />
         {/* Chat To Document */}
+        <ChatToDocument doc={doc} />
 
         {/* Dark Mode */}
         <Button className={styleDarkMode} onClick={() => setIsDarkMode(!isDarkMode)}>
