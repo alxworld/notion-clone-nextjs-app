@@ -16,7 +16,7 @@ function DocumentPage({ params }: { params: tParams }): JSX.Element {
       idRef.current = fetchedId.id
     }
     fetchData()
-  }, [])
+  }, [params])
 
   return (
     <div className="flex flex-col flex-1 min-h-screen">

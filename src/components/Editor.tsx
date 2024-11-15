@@ -46,7 +46,7 @@ function BlockNote({ doc, provider, darkMode }: EditorProps) {
 function Editor() {
   const room = useRoom()
   const [doc, setDoc] = useState<Y.Doc>() // document content
-  const [provider, setProvider] = useState<Y.LiveblocksYjsProvider>()
+  const [provider, setProvider] = useState<LiveblocksYjsProvider>()
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   useEffect(() => {
