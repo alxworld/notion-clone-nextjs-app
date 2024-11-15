@@ -10,7 +10,10 @@ export async function POST(req: NextRequest) {
 
   console.log('sessionClaims', sessionClaims)
 
-  const session = liveblocks.prepareSession(sessionClaims?.email, {
+  if (!sessionClaims?.email) {
+    return NextResponse.json({ error: 'Email is required for authentication' }, { status: 400 })
+  }
+  const session = liveblocks.prepareSession(sessionClaims.email, {
     userInfo: {
       name: sessionClaims?.fullName,
       email: sessionClaims?.email,
