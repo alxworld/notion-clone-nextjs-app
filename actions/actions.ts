@@ -6,7 +6,7 @@ import { auth } from '@clerk/nextjs/server'
 import liveblocks from '@/lib/liveblocks'
 
 export async function createDocument() {
-  //auth().protect()
+  auth.protect()
 
   const { sessionClaims } = await auth()
 
