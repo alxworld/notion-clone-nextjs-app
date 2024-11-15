@@ -19,11 +19,12 @@ import ChatToDocument from './ChatToDocument'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type EditorProps = {
   doc: Y.Doc
-  provider: Y.LiveblocksYjsProvider
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  provider: any
   darkMode: boolean
 }
 
-function BlockNote({ doc, provider, darkMode }: { EditorProps }) {
+function BlockNote({ doc, provider, darkMode }: EditorProps) {
   const userInfo = useSelf(me => me.info)
   const editor: BlockNoteEditor = useCreateBlockNote({
     collaboration: {
