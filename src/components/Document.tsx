@@ -13,7 +13,7 @@ import InviteUser from './InviteUser'
 import ManageUsers from './ManageUsers'
 import Avatars from './Avatars'
 
-function Document({ id }): { id: string } {
+function Document({ id }: { id: string }) {
   const [input, setInput] = useState('')
   const [isUpdating, startTransition] = useTransition()
   const [data, loading, error] = useDocumentData(doc(db, 'documents', id))
@@ -24,8 +24,10 @@ function Document({ id }): { id: string } {
     // fetch document title
     if (data) {
       setInput(data.title)
+      console.log('loading: ', loading)
+      console.log('error: ', error)
     }
-  }, [data])
+  }, [data, error, loading])
 
   const updateTitle = (e: FormEvent) => {
     e.preventDefault()

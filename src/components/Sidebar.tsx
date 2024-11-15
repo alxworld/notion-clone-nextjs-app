@@ -21,6 +21,7 @@ interface RoomDocument extends DocumentData {
 function Sidebar() {
   const { user } = useUser()
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [data, loading, error] = useCollection(user && query(collectionGroup(db, 'rooms'), where('userId', '==', user?.emailAddresses[0].toString())))
 
   const [groupedData, setGroupedData] = useState<{

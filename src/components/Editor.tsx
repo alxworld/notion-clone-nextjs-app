@@ -16,9 +16,10 @@ import stringToColor from '@/lib/stringToColor'
 import TranslateDocument from './TranslateDocument'
 import ChatToDocument from './ChatToDocument'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type EditorProps = {
   doc: Y.Doc
-  provider: any
+  provider: Y.LiveblocksYjsProvider
   darkMode: boolean
 }
 

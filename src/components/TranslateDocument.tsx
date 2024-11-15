@@ -17,6 +17,7 @@ function TranslateDocument({ doc }: { doc: Y.Doc }) {
   const [isOpen, setIsOpen] = useState(false)
   const [language, setLanguage] = useState<string>('')
   const [summary, setSummary] = useState()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [question, setQuestion] = useState('')
   const [isPending, startTransition] = useTransition()
 
