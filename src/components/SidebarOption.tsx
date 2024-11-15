@@ -6,7 +6,7 @@ import { db } from '../../firebase'
 import { doc } from 'firebase/firestore'
 import { usePathname } from 'next/navigation'
 
-function SidebarOption({ href, id }): { href: string; id: string } | null {
+function SidebarOption({ href, id }: { href: string; id: string }): JSX.Element | null {
   // [data, loading, error]  // loading and error are not used hence removed
   const [data] = useDocumentData(doc(db, 'documents', id))
   const pathname = usePathname()
