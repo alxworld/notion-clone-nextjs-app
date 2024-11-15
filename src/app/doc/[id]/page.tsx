@@ -8,19 +8,19 @@ type tParams = Promise<{ id: string }>
 function DocumentPage({ params }: { params: tParams }): JSX.Element {
   //function DocumentPage({ params: tParams }: { params: tParams }): JSX.Element {
   //const idRef = React.useRef<string | null>(null)
-  let id: string = ''
+  const idRef = React.useRef<string | null>(null)
 
   React.useEffect(() => {
     async function fetchData() {
       const fetchedId = await params
-      id = fetchedId
+      idRef.current = fetchedId.id
     }
     fetchData()
   }, [])
 
   return (
     <div className="flex flex-col flex-1 min-h-screen">
-      <Document id={id} />
+      <Document id={idRef.current || ''} />
     </div>
   )
 }
